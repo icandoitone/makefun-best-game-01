@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Streets — Midnight City</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game"></div>
+
+<div id="hud" class="hidden">
+  <div id="hud-topleft">
+    <div id="wanted" title="Wanted level"></div>
+    <div id="money">$0</div>
+    <div id="health-wrap"><div id="health-bar"></div><span id="health-label">CAR</span></div>
+  </div>
+  <div id="hud-topcenter">
+    <div id="objective">Drive to the marker</div>
+    <div id="mission-timer"></div>
+  </div>
+  <div id="hud-topright">
+    <div id="speed">0</div>
+    <div id="speed-unit">km/h</div>
+    <div id="gear">D</div>
+  </div>
+  <div id="hud-bottomleft">
+    <div id="radio">RADIO · NEON FM</div>
+    <div id="hint">E enter / exit car · R radio · M mute · P pause</div>
+  </div>
+  <div id="hud-bottomright">
+    <canvas id="minimap" width="180" height="180"></canvas>
+  </div>
+  <div id="banner" class="hidden"></div>
+  <div id="toast" class="hidden"></div>
+  <div id="tail-meter-wrap" class="hidden"><div id="tail-meter-label">TAIL THE TARGET</div><div id="tail-meter"><div id="tail-fill"></div></div></div>
+</div>
+
+<div id="screen-title" class="screen">
+  <div class="panel">
+    <h1>NEON<br>STREETS</h1>
+    <p class="subtitle">MIDNIGHT CITY &mdash; a 3D open-world driving story</p>
+    <p class="tagline">Six missions. One city that never sleeps. Stay out of sight &mdash; or outrun them all.</p>
+    <div class="menu">
+      <button id="btn-continue" class="hidden">Continue</button>
+      <button id="btn-new">New Game</button>
+      <button id="btn-how">How to Play</button>
+    </div>
+    <div id="title-stats"></div>
+    <div id="howto" class="hidden">
+      <p><b>W A S D / arrows</b> drive &nbsp;·&nbsp; <b>Space</b> handbrake &nbsp;·&nbsp; <b>E</b> enter / exit car &amp; carjack</p>
+      <p><b>R</b> radio station &nbsp;·&nbsp; <b>M</b> mute &nbsp;·&nbsp; <b>P / Esc</b> pause</p>
+      <p>Follow the glowing beacon. Stars rise when you break the law &mdash; lose the cops to cool off. Steal a car by walking up to one on foot and pressing E.</p>
+    </div>
+    <p class="foot">Original game · MIT License · runs fully offline</p>
+  </div>
+</div>
+
+<div id="screen-pause" class="screen hidden">
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <div class="menu">
+      <button id="btn-resume">Resume</button>
+      <button id="btn-restart-mission">Restart Mission</button>
+      <button id="btn-mute">Sound: On</button>
+      <button id="btn-quit-title">Quit to Title</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-complete" class="screen hidden">
+  <div class="panel">
+    <h2>MISSION COMPLETE</h2>
+    <p id="complete-name"></p>
+    <p id="complete-reward" class="reward"></p>
+    <p id="complete-stats"></p>
+    <div class="menu"><button id="btn-next-mission">Next Mission</button></div>
+  </div>
+</div>
+
+<div id="screen-failed" class="screen hidden">
+  <div class="panel">
+    <h2>MISSION FAILED</h2>
+    <p id="failed-reason"></p>
+    <div class="menu">
+      <button id="btn-retry-mission">Retry Mission</button>
+      <button id="btn-failed-title">Quit to Title</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-busted" class="screen hidden">
+  <div class="panel">
+    <h2>BUSTED</h2>
+    <p>The NCPD boxed you in. The city keeps your money &mdash; but the night is young.</p>
+    <div class="menu">
+      <button id="btn-busted-retry">Retry Mission</button>
+      <button id="btn-busted-title">Quit to Title</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-wrecked" class="screen hidden">
+  <div class="panel">
+    <h2>WRECKED</h2>
+    <p>Your ride is scrap. Walk it off and try again.</p>
+    <div class="menu">
+      <button id="btn-wrecked-retry">Retry Mission</button>
+      <button id="btn-wrecked-title">Quit to Title</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-win" class="screen hidden">
+  <div class="panel">
+    <h2>MIDNIGHT LEGEND</h2>
+    <p>You ran the whole city and lived to tell it. Every mission complete.</p>
+    <p id="win-stats" class="reward"></p>
+    <div class="menu">
+      <button id="btn-play-again">Play Again</button>
+      <button id="btn-win-title">Title Screen</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
